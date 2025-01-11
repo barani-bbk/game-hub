@@ -44,7 +44,7 @@ function App() {
             onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
           />
         </GridItem>
-        <GridItem paddingX={5} area="main">
+        <GridItem paddingX={5} paddingBottom={10} area="main">
           <GameHeading gameQuery={gameQuery} />
           <HStack gap={5} marginBottom={4}>
             <PlatformSelector
