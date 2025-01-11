@@ -23,7 +23,6 @@ const GameGrid = ({ selectedGenre }: Props) => {
           lg: 3,
           xl: 4,
         }}
-        padding={10}
         paddingTop={1}
         gap={3}
       >
