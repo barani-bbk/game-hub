@@ -5,6 +5,7 @@ import {
   MenuRoot,
   MenuTrigger,
 } from "@/components/ui/menu";
+import usePlatform from "@/hooks/usePlatform";
 import usePlatforms, { Platform } from "@/hooks/usePlatforms";
 import { BsChevronDown } from "react-icons/bs";
 
@@ -17,9 +18,7 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatformId }: Props) => {
   const { data, error } = usePlatforms();
 
   if (error) return null;
-  const buttonLabel =
-    data.results.find((platform) => platform.id === selectedPlatformId)?.name ||
-    "Platform";
+  const buttonLabel = usePlatform(selectedPlatformId)?.name || "Platform";
 
   return (
     <MenuRoot>
