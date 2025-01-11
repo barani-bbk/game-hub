@@ -5,24 +5,34 @@ import {
   MenuRoot,
   MenuTrigger,
 } from "@/components/ui/menu";
-import usePlatforms from "@/hooks/usePlatforms";
+import usePlatforms, { Platform } from "@/hooks/usePlatforms";
 import { BsChevronDown } from "react-icons/bs";
 
-const PlatformSelector = () => {
+interface Props {
+  onSelectPlatform: (platform: Platform) => void;
+  selectedPlatform: Platform | null;
+}
+
+const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
   const { data, error } = usePlatforms();
 
   if (error) return null;
+  const buttonLabel = selectedPlatform?.name ?? "Platform";
 
   return (
     <MenuRoot>
       <MenuTrigger asChild>
         <Button variant="subtle" outline="none" size="sm" marginBottom={1}>
-          Platform <BsChevronDown />
+          {buttonLabel} <BsChevronDown />
         </Button>
       </MenuTrigger>
       <MenuContent minW="10rem">
         {data.map((platform) => (
-          <MenuItem key={platform.id} value={platform.slug}>
+          <MenuItem
+            onClick={() => onSelectPlatform(platform)}
+            key={platform.id}
+            value={platform.slug}
+          >
             {platform.name}
           </MenuItem>
         ))}
