@@ -22,7 +22,7 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
   return (
     <MenuRoot>
       <MenuTrigger asChild>
-        <Button variant="subtle" outline="none" size="sm" marginBottom={1}>
+        <Button variant="subtle" outline="none" size="sm">
           {buttonLabel} <BsChevronDown />
         </Button>
       </MenuTrigger>
