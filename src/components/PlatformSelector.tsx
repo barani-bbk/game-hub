@@ -6,16 +6,14 @@ import {
   MenuTrigger,
 } from "@/components/ui/menu";
 import usePlatform from "@/hooks/usePlatform";
-import usePlatforms, { Platform } from "@/hooks/usePlatforms";
+import usePlatforms from "@/hooks/usePlatforms";
+import useGameQueryStore from "@/stores/gameQueryStore";
 import { BsChevronDown } from "react-icons/bs";
 
-interface Props {
-  onSelectPlatform: (platform: Platform) => void;
-  selectedPlatformId?: number;
-}
-
-const PlatformSelector = ({ onSelectPlatform, selectedPlatformId }: Props) => {
+const PlatformSelector = () => {
   const { data, error } = usePlatforms();
+  const onSelectPlatform = useGameQueryStore((s) => s.setPlatformId);
+  const selectedPlatformId = useGameQueryStore((s) => s.gameQuery.platformId);
 
   if (error) return null;
   const buttonLabel = usePlatform(selectedPlatformId)?.name || "Platform";
@@ -30,7 +28,7 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatformId }: Props) => {
       <MenuContent minW="10rem">
         {data?.results.map((platform) => (
           <MenuItem
-            onClick={() => onSelectPlatform(platform)}
+            onClick={() => onSelectPlatform(platform.id)}
             key={platform.id}
             value={platform.slug}
           >

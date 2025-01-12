@@ -5,13 +5,12 @@ import {
   MenuRoot,
   MenuTrigger,
 } from "@/components/ui/menu";
+import useGameQueryStore from "@/stores/gameQueryStore";
 
-interface Props {
-  onSelectSortOrder: (sort: string) => void;
-  selectedSortOrder: string;
-}
+const SortSelector = () => {
+  const onSelectSortOrder = useGameQueryStore((s) => s.setSortOrder);
+  const selectedSortOrder = useGameQueryStore((s) => s.gameQuery.sort);
 
-const SortSelector = ({ onSelectSortOrder, selectedSortOrder }: Props) => {
   const sortOrders = [
     { value: "", label: "Relevance" },
     { value: "-added", label: "Date added" },
