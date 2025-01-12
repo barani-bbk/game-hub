@@ -1,8 +1,8 @@
-import { Platform } from "@/entities/Platform";
-import { Genre } from "./Genre";
-import { Publisher } from "./publisher";
+import Platform from "./Platform";
+import Genre from "./Genre";
+import Publisher from "./publisher";
 
-export interface Game {
+interface Game {
   id: number;
   name: string;
   description_raw: string;
@@ -13,3 +13,5 @@ export interface Game {
   parent_platforms: { platform: Platform }[];
   metacritic: number;
 }
+
+export default Game;
