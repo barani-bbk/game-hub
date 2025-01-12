@@ -1,5 +1,6 @@
+import TextSummorize from "@/components/TextSummorize";
 import useGame from "@/hooks/useGame";
-import { Heading, Text, Spinner } from "@chakra-ui/react";
+import { Heading, Spinner } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 
 const GameDetailPage = () => {
@@ -11,8 +12,10 @@ const GameDetailPage = () => {
 
   return (
     <>
-      <Heading fontSize="4xl">{data.name}</Heading>
-      <Text>{data.description_raw}</Text>
+      <Heading marginBottom={4} fontSize="4xl">
+        {data.name}
+      </Heading>
+      <TextSummorize>{data.description_raw}</TextSummorize>
     </>
   );
 };
