@@ -1,4 +1,5 @@
 import GameAttributes from "@/components/GameAttributes";
+import GameTrailer from "@/components/GameTrailer";
 import TextSummorize from "@/components/TextSummorize";
 import useGame from "@/hooks/useGame";
 import { Heading, Spinner } from "@chakra-ui/react";
@@ -18,6 +19,7 @@ const GameDetailPage = () => {
       </Heading>
       <TextSummorize>{data.description_raw}</TextSummorize>
       <GameAttributes game={data} />
+      <GameTrailer gameId={data.id} />
     </>
   );
 };
