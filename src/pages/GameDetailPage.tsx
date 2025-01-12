@@ -1,3 +1,4 @@
+import GameAttributes from "@/components/GameAttributes";
 import TextSummorize from "@/components/TextSummorize";
 import useGame from "@/hooks/useGame";
 import { Heading, Spinner } from "@chakra-ui/react";
@@ -16,6 +17,7 @@ const GameDetailPage = () => {
         {data.name}
       </Heading>
       <TextSummorize>{data.description_raw}</TextSummorize>
+      <GameAttributes game={data} />
     </>
   );
 };
