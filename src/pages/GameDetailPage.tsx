@@ -1,4 +1,5 @@
 import GameAttributes from "@/components/GameAttributes";
+import GameScreenshots from "@/components/GameScreenshots";
 import GameTrailer from "@/components/GameTrailer";
 import TextSummorize from "@/components/TextSummorize";
 import useGame from "@/hooks/useGame";
@@ -20,6 +21,7 @@ const GameDetailPage = () => {
       <TextSummorize>{data.description_raw}</TextSummorize>
       <GameAttributes game={data} />
       <GameTrailer gameId={data.id} />
+      <GameScreenshots gameId={data.id} />
     </>
   );
 };
