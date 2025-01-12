@@ -3,10 +3,12 @@ import { InputGroup } from "./ui/input-group";
 import { BsSearch } from "react-icons/bs";
 import { useRef } from "react";
 import useGameQueryStore from "@/stores/gameQueryStore";
+import { useNavigate } from "react-router-dom";
 
 const SearchInput = () => {
   const onSearch = useGameQueryStore((s) => s.setSearchText);
   const ref = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate();
 
   return (
     <form
@@ -14,6 +16,7 @@ const SearchInput = () => {
         event.preventDefault();
         if (ref.current) {
           onSearch(ref.current.value);
+          navigate("/");
         }
       }}
     >
