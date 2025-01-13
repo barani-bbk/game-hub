@@ -28,7 +28,7 @@ const GameDetailPage = () => {
         <TextSummorize>{data.description_raw}</TextSummorize>
         <GameAttributes game={data} />
       </GridItem>
-      <GridItem>
+      <GridItem spaceY={4}>
         <GameTrailer gameId={data.id} />
         <GameScreenshots gameId={data.id} />
       </GridItem>

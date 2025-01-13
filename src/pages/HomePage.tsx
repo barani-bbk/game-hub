@@ -18,7 +18,15 @@ const HomePage = () => {
           lg: "200px 1fr",
         }}
       >
-        <GridItem hideBelow="lg" area="aside">
+        <GridItem
+          position="sticky"
+          height="100vh"
+          left={0}
+          top={0}
+          zIndex={900}
+          hideBelow="lg"
+          area="aside"
+        >
           <GenreList />
         </GridItem>
         <GridItem paddingX={5} paddingBottom={10} area="main">
